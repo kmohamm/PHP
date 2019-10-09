@@ -1,0 +1,175 @@
+body {
+    background-color: rgb(63, 60, 60);
+  }
+  .center {
+    display: block;
+    margin-top: auto;
+    margin: auto;
+    
+    
+  }
+  .move {
+    background-color: #909090;
+    height: 150px;
+    width: 1500px;
+    border-radius: 8px;
+    margin: auto;
+    box-shadow: 10px 10px 4px;
+  }
+  .cluster {
+    background-color: #909090;
+    height: 596px;
+    width: 1041px;
+    margin: auto;
+    border-radius: 6px;
+    box-shadow: 10px 10px 4px;
+  }
+  .pic{
+      position: absolute;
+      top: 18.5%;
+      bottom: 9.8%;
+      left: 23.4% 
+  }
+  .day_of
+  {
+    position: absolute;
+    top: 3%;
+    bottom: 1%;
+  }
+
+  .magnifier {
+    position: absolute;
+    top: 2%;
+    bottom: 1%;
+    left: 74.5%;
+    right: 10%;
+  }
+
+  .close_pic 
+  {
+      position: absolute;
+      top: 13%;
+      left: 87.5%;
+  }
+  .load
+  {
+      position: absolute;
+      top: 2%;
+      left: 87.5%;
+      width: 20px;
+      height: 20px;
+  }
+  .left
+  {
+      background-color: #909090;
+      height: 450px;
+      width: 180px;
+      margin: auto;
+      position: absolute;
+      left: 12.3%;
+      top: 17.6%;
+      border-radius: 8px;
+      box-shadow: 10px 10px 4px;
+  }
+  .right
+  {
+      background-color: #909090;
+      height: 450px;
+      width: 180px;
+      margin: auto;
+      position: absolute;
+      right: 12.3%;
+      top: 17.6%;
+      border-radius: 8px;
+      box-shadow: 10px 10px 4px;
+  }
+  .arrow
+  {
+      position: absolute;
+      left: 27%;
+      height: 80px;
+      width: 80px;
+      padding-top: 5px; 
+  }
+  .book
+  {
+      padding-top: 10px;
+      position: absolute;
+      right: 27%;
+      height: 100px;
+      width: 80px;
+  }
+  .green_block
+  {
+      background-color: #88ff89;
+      height: 170px;
+      width: 550px;
+      border-radius: 10px;
+      position: absolute;
+      left: 8.5%;
+      bottom: 13%;
+      padding: 2px;
+      box-shadow: 8px 8px 3px;
+  }
+  input
+  { 
+      position: absolute;
+      top: 50%;
+      left: 2%;
+      height: 10%;
+      width: 70%;
+  }
+  .submit
+  {
+      background-color: #F0F8FF;
+      border-width: 10%;
+      border-style: solid;
+      height: 13%;
+      vertical-align: center;
+      display:inline-block;
+      width:20%;
+      font-size: 0.8vw;
+      position: absolute;
+      left: 72%;
+      color: black;
+  }
+  #italic{
+    font-style: italic;
+  }
+
+  p{
+    font-size: 0.8vw;
+    margin:0;
+    font-family: Verdana;
+  }
+  #big{
+    font-size: 2vw;
+    font-family: Georgia;
+  }
+  #formulaire{
+    width:65%;
+    height:10%;
+    display:inline-block;
+    margin-top: 0%;
+    font-size: 0.8vw;
+    box-shadow: 1px 1px 4px;
+  }
+  .chair
+  {
+    opacity: 0;
+    height: 210px;
+    width: 95px;
+    position: absolute;
+    left: 41.1%;
+    top: 52%;     
+  }
+  .screen
+  {
+    opacity: 0;
+    height: 100px;
+    width: 120px;
+    position: absolute;
+    left: 57.5%;
+    top: 49.3%;    
+  }
+  
