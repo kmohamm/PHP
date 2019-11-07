@@ -7,7 +7,7 @@
    <link rel="stylesheet" href="homepage.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="script.js"></script>
-   <title>CSS MenuMaker</title>
+   <title>Homepage</title>
 </head>
 <body class="news">
   <header>
@@ -16,8 +16,8 @@
         <li class="home"><a class="active" href="#">Home</a></li>
         <li class="profile"><a href="profile.php">Profile</a></li>
         <li class="gallery"><a href="#">Gallery</a></li>
-        <li class="SnapShot"><a href="#">SnapShot</a></li>
-        <li class="logout"><a href="#">Logout</a></li>
+        <li class="SnapShot"><a href="SnapShot.php">SnapShot</a></li>
+        <li class="logout"><a href="sign.php">Logout</a></li>
       </ul>
     </div>
   </header>

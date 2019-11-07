@@ -5,14 +5,14 @@ form
 {
     margin-top: -58px;
 }
-.sign{
-    height: 750px;
+.update{
+    height: 650px;
     width: 500px;
     background-color:white;
     margin: 100px auto;
     border-radius: 15px;
 }
-.register h1 {
+.update h1 {
     text-align: center;
     color: #5b6574;
     font-size: 24px;
@@ -27,13 +27,13 @@ form
     margin-right: auto;
 
 }
-.register form {
+.update form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 100px;
 }
-.register form label {
+.update form label {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,12 +42,13 @@ form
     background-color: #3274d6;
     color: #ffffff;
 }
-.sign form input[type="username"], .sign form input[type="email"], .sign form input[type="password"], .sign form input[type="email"] {
+.update form input[type="text"], .update form input[type="email"], .update form input[type="password"]{
     width: 300px;
     height: 46px;
     border: 1px solid #dee0e4;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     padding: 0 15px;
+    margin-left: -80px;
 }
 .register form input[type="submit"] {
     width: 7%;
@@ -63,46 +64,87 @@ form
     border-radius: 5px;
 }
 
-.register form input[type="submit"] {
-    width: 7%;
-    padding: 15px;
-    margin-top: 72px;
-    margin-left: 20px;
-    background-color: #3274d6;
-    border: 0;
-    cursor: pointer;
-    font-weight: bold;
-    color: #ffffff;
-    transition: background-color 0.2s;
-    border-radius: 5px;
-}
 .picture {
     width: 250px;
     height: 200px;
 }
-.ref {
-    position: absolute;
-    left: 10%;
-    margin-left: auto;
-}
+
 .button1{
     background-color: #3274d6;
-    width: 140px;
-    height: 50px;
-    border-radius: 15px;
     position: absolute;
-    right: 50%;
-    border: 1px;
-    margin-right: 10px;
+    top: 48%;
+    width: 120px;
+    height: 51px;
+    color: white;
 }
+
 .button2{
     background-color: #3274d6;
-    width: 140px;
-    height: 50px;
-    border-radius: 15px;
     position: absolute;
-    left: 50%;
-    border: 1px;
-    margin-left: 10px;
-    
+    top: 57%;
+    width: 120px;
+    height: 51px;
+    color: white;
+}
+
+.button3{
+    background-color: #3274d6;
+    position: absolute;
+    top: 66%;
+    width: 120px;
+    height: 51px;
+    color: white;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: #ccc;
+  }
+   
+  .nav ul {
+    list-style: none;
+    background-color: #ed5c4a;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  .nav li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid rgb(136, 136, 136);
+  }
+   
+  .nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+  }
+   
+  .nav a:hover {
+    background-color: #005f5f;
+  }
+   
+  .nav a.active {
+    background-color: #3274d6;
+    color: white;
+    cursor: default;
+  }
+   
+  @media screen and (min-width: 600px) {
+    .nav li {
+      width: 120px;
+      border-bottom: none;
+      height: 60px;
+      line-height: 60px;
+      font-size: 1.4em;
+    }
+   
+    /* Option 1 - Display Inline */
+    .nav li {
+      display: inline-block;
+      margin-right: -4px;
+    }
 }
