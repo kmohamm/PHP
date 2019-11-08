@@ -1,76 +1,58 @@
-<?php
-   session_start();
-   include("connection.php");
-
-   $old_username = $_SESSION['username'];
-   if(isset($_POST['u_username']))
-   {
-        $username = $_POST['username'];
-        echo $username;
-        $statement = $db->prepare("UPDATE users SET username = '$username' WHERE username = '$old_username'");
-        $statement->execute();
-        $_SESSION['username'] = $username;
-        echo "username updated";
-   }
-   if(isset($_POST['update_email']))
-   {
-        $email = $_POST['email'];
-        $statement = $db->prepare("UPDATE users SET email = '$email' WHERE username = '$old_username'");
-        $statement->execute();
-        echo "email updated";
-   }
-   if(isset($_POST['update_pass']))
-   {
-        $password = $_POST['password'];
-        $hashed = password_hash($password, PASSWORD_BCRYPT);
-        $statement = $db->prepare("UPDATE users SET passwd = '$hashed' WHERE username = '$old_username'");
-        $statement->execute();
-        echo "password updated";
-   }
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>Profile</title>
-<link rel="stylesheet" type="text/css" href="profile.css">
+<html lang=""><head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="SnapShot.css">
+   <script src="script.js" type="text/javascript"></script>
+   <title>SnapShot</title>
 </head>
-<body>
-<div class="nav">
-      <ul>
-        <li class="home"><a href="homepage.php">Home</a></li>
-        <li class="profile"><a class="active"href="profile.php">Profile</a></li>
-        <li class="gallery"><a href="#">Gallery</a></li>
-        <li class="SnapShot"><a href="SnapShot.php">SnapShot</a></li>
-        <li class="logout"><a href="sign.php">Logout</a></li>
-      </ul>
-    </div>
-<div class = "update" align="center">
-    <img class="pic" src="http://www.createmepink.com/wp-content/uploads/st/thumb-stock-illustration-sketch-instagram-modern-camera-logo.jpg">
-    <div class="box" text-align="center">
-        <br>
+<body class="news" cz-shortcut-listen="true">
+    <header>
+        <div class="nav">
+            <ul>
+                <li class="home"><a href="homepage.php">Home</a></li>
+                <li class="profile"><a href="profile.php">Profile</a></li>
+                <li class="gallery"><a href="#">Gallery</a></li>
+                <li class="SnapShot"><a class="active" href="#">SnapShot</a></li>
+                <li class="logout"><a href="sign.php">Logout</a></li>
+            </ul>
+        </div>
+        <script src="script.js"></script>
+        <div id="newImages">
+            <div>
+                <video id="player">Video is loading...</video>
+			</div>
+			<div>
+                <div>
+                        <input type="button" value="Take the Shot" id="capture-btn">
+                    </div>
 
-    <h3>Update Details</h3>
+				<canvas name="image" id="canvas" width="320px" height="240px">Canvas Still Loading</canvas>
+				<h3><canvas name="image" id="player">Canvas still loading</canvas></h3>
+			</div>
+  </div></header>
+  <div id="container">
+<video autoplay="true" id="videoElement">
+</video>
+</div>
+<script type="text/javascript">
+    var video = document.querySelector("#videoElement");
+    navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUsermedia||
+    navigator.mozGetUserMedia||navigator.msGetUserMedia||navigator.oGetUserMedia;
+    if (navigator.getUserMedia) 
+    {
+        navigator.getUserMedia({video:true}, handleVideo, videoError);
 
-    <form action="profile.php" method="post" autocomplete="off">
-		
-    <input type="text" name="username" placeholder= "<?php echo $_SESSION['username']; ?>" id="username">
-        
-        <input type="email" name="email" placeholder="<?php echo $_SESSION['email']; ?>" id="email">
-		
-        <div class="col"><input type="password" name="password" placeholder="Password" id="password">
-        
-        <input type="submit" class="button1" id="register" value="update_username" name="u_username">
+    }
+    function handleVideo(localStream)
+    {
+        self.video.srcObject = localStream;
+    }    
+    function videoError(e)
+    {
 
-       <input type="submit" class="button2" id="register" value="update_email" name="update_email">
-
-        <input type="submit" class="button3" id="register" value="update_password" name="update_password">
-    </div>
-    </form>
-    <br><br>
-        <br><br>
-    </div>
-</body>
+    }
+</script>
 
 
-</html>
+</body></html>

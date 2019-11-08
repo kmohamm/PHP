@@ -1,7 +1,17 @@
 body {
     margin: 0;
     padding: 0;
-    background: #ccc;
+    background: white;
+  }
+  header{
+    height: 230px;
+  }
+
+  .button1{
+    width: 100px;
+    height: 100px;
+    margin-left: 537px;
+    margin-top: 72px;
   }
 
   .nav ul {
@@ -65,3 +75,18 @@ body {
     }
     */
   }
+  #container{
+    width: 30%;
+    height: 375px;
+    border: 10px #333 solid;
+    margin: auto;
+   
+}
+  #videoElement{
+    width: 30%;
+    height: 375px;
+    background-color: #666;
+    position: absolute;
+    margin: auto;
+    
+}
