@@ -1,29 +1,35 @@
 <?php
+ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
    session_start();
    include("connection.php");
-   //echo $_SESSION['username'];
-   $username = $_SESSION['username'];
-   if(isset($_POST['username']))
+   echo $_SESSION['username'];
+   $old_username = $_SESSION['username'];
+   
+   if(isset($_POST['submit_name']))
    {
-       $username = $_POST['username'];
-       $statement = $db->prepare("UPDATE users SET username = '$username' WHERE username = '$username'");
+       $new_username = $_POST['Username'];
+       $statement = $db->prepare("UPDATE users SET username = '$new_username' WHERE username = '$old_username'");
        $statement->execute();
        $_SESSION['username'] = $username;
+       echo "usename updated";
    }
-   if(isset($_POST['email']))
+   if(isset($_POST['submit_email']))
    {
        $email = $_POST['email'];
-       $statement = $db->prepare("UPDATE users SET email = '$email' WHERE username = '$username'");
+       $statement = $db->prepare("UPDATE users SET email = '$email' WHERE username = '$old_username'");
        $statement->execute();
+       echo "email updated";
    }
-   if(isset($_POST['passwd']))
+   if(isset($_POST['submit_passwd']))
    {
-       $pass = $_POST['passwd'];
-       $hashed = password_hash($password, PASSWORD_BCRYPT);
-       $statement = $db->prepare("UPDATE users SET passwd = '$hashed' WHERE username = '$username'");
+       $pass = $_POST['password'];
+       $hashed = password_hash($pass, PASSWORD_BCRYPT);
+       $statement = $db->prepare("UPDATE users SET passwd = '$hashed' WHERE username = '$old_username'");
        $statement->execute();
+       echo "password updated";
    }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -47,18 +53,18 @@
         <div class="information">
             <h1>User Information</h1>
         </div>
-        <form action="register.php" method="post" autocomplete="off">
+        <form action="" method="post" autocomplete="off">
             <div class="one">
                 <input type="text" name="Username" placeholder="username" id="username">
-                <input type="submit" class="button1" id = "username" value="Update_username"  name="username">
+                <input type="submit" class="button1" id = "username" value="Update_username"  name="submit_name">
             </div>
             <div class="two">
          <input type="email" name="email" placeholder="Email" id="email">
-         <input type="submit" class="button2" id = "email" value="Update_email"  name="email">
+         <input type="submit" class="button2" id = "email" value="Update_email"  name="submit_email">
         </div>
         <div class="three">
         <input type="password" name="password" placeholder="Password" id="password">
-        <input type="submit" class="button3" id = "password" value="Update_password"  name="passwd">
+        <input type="submit" class="button3" id = "password" value="Update_password"  name="submit_passwd">
         </div>
         <br>
         <br>

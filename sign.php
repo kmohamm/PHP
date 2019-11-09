@@ -16,7 +16,7 @@
       //var_dump($user['passwd']);
       //die();
       $hashed = $user['passwd'];
-      if (password_verify($password, $hashed)).
+      if (password_verify($password, $hashed))
       {
          $_SESSION["username"]= $username;
          echo "Correct";
