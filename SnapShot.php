@@ -44,7 +44,7 @@
     }
     function handleVideo(localStream)
     {
-        // self.video.srcObject = localStream;
+        self.video.srcObject = localStream;
     }    
     function videoError(e)
     {

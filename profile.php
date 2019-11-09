@@ -1,58 +1,70 @@
-<html lang=""><head>
+<?php
+   session_start();
+   include("connection.php");
+   //echo $_SESSION['username'];
+   $username = $_SESSION['username'];
+   if(isset($_POST['username']))
+   {
+       $username = $_POST['username'];
+       $statement = $db->prepare("UPDATE users SET username = '$username' WHERE username = '$username'");
+       $statement->execute();
+       $_SESSION['username'] = $username;
+   }
+   if(isset($_POST['email']))
+   {
+       $email = $_POST['email'];
+       $statement = $db->prepare("UPDATE users SET email = '$email' WHERE username = '$username'");
+       $statement->execute();
+   }
+   if(isset($_POST['passwd']))
+   {
+       $pass = $_POST['passwd'];
+       $hashed = password_hash($password, PASSWORD_BCRYPT);
+       $statement = $db->prepare("UPDATE users SET passwd = '$hashed' WHERE username = '$username'");
+       $statement->execute();
+   }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
    <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="SnapShot.css">
-   <script src="script.js" type="text/javascript"></script>
-   <title>SnapShot</title>
+   <link rel="stylesheet" href="profile.css">
+   <title>Profile</title>
 </head>
-<body class="news" cz-shortcut-listen="true">
-    <header>
-        <div class="nav">
-            <ul>
-                <li class="home"><a href="homepage.php">Home</a></li>
-                <li class="profile"><a href="profile.php">Profile</a></li>
-                <li class="gallery"><a href="#">Gallery</a></li>
-                <li class="SnapShot"><a class="active" href="#">SnapShot</a></li>
-                <li class="logout"><a href="sign.php">Logout</a></li>
-            </ul>
+<body>
+    <div class="nav">
+        <ul>
+            <li class="home"><a href="homepage.php">Home</a></li>
+            <li class="profile"><a class="active" href="#">Profile</a></li>
+            <li class="gallery"><a href="#">Gallery</a></li>
+            <li class="SnapShot"><a href="SnapShot.php">SnapShot</a></li>
+            <li class="logout"><a href="sign.php">Logout</a></li>
+        </ul>
         </div>
-        <script src="script.js"></script>
-        <div id="newImages">
-            <div>
-                <video id="player">Video is loading...</video>
-			</div>
-			<div>
-                <div>
-                        <input type="button" value="Take the Shot" id="capture-btn">
-                    </div>
 
-				<canvas name="image" id="canvas" width="320px" height="240px">Canvas Still Loading</canvas>
-				<h3><canvas name="image" id="player">Canvas still loading</canvas></h3>
-			</div>
-  </div></header>
-  <div id="container">
-<video autoplay="true" id="videoElement">
-</video>
-</div>
-<script type="text/javascript">
-    var video = document.querySelector("#videoElement");
-    navigator.getUserMedia=navigator.getUserMedia||navigator.webkitGetUsermedia||
-    navigator.mozGetUserMedia||navigator.msGetUserMedia||navigator.oGetUserMedia;
-    if (navigator.getUserMedia) 
-    {
-        navigator.getUserMedia({video:true}, handleVideo, videoError);
+        <div class="update">
+        <div class="information">
+            <h1>User Information</h1>
+        </div>
+        <form action="register.php" method="post" autocomplete="off">
+            <div class="one">
+                <input type="text" name="Username" placeholder="username" id="username">
+                <input type="submit" class="button1" id = "username" value="Update_username"  name="username">
+            </div>
+            <div class="two">
+         <input type="email" name="email" placeholder="Email" id="email">
+         <input type="submit" class="button2" id = "email" value="Update_email"  name="email">
+        </div>
+        <div class="three">
+        <input type="password" name="password" placeholder="Password" id="password">
+        <input type="submit" class="button3" id = "password" value="Update_password"  name="passwd">
+        </div>
+        <br>
+        <br>
+        
+    </form>
+    </div>
 
-    }
-    function handleVideo(localStream)
-    {
-        self.video.srcObject = localStream;
-    }    
-    function videoError(e)
-    {
-
-    }
-</script>
-
-
-</body></html>
+</body>
+</html>

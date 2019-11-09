@@ -1,16 +1,22 @@
 body{
-    background-color: #ed5c4a;
+    background-image: url("https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
 }
 form
 {
     margin-top: -58px;
 }
 .update{
-    height: 650px;
+    height: 550px;
     width: 500px;
     background-color:white;
-    margin: 100px auto;
-    border-radius: 15px;
+    margin: 160px auto;
+    /* border-radius: 15px; */
+}
+.information{
+  width: 500px;
+  height: 69px;
+  background-color: #3274d6;
+
 }
 .update h1 {
     text-align: center;
@@ -18,6 +24,9 @@ form
     font-size: 24px;
     padding: 20px 0 20px 0;
     border-bottom: 1px solid #dee0e4;
+}
+.information h1{
+  color: white;
 }
 .pic {
     height: 200px;
@@ -31,7 +40,7 @@ form
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 225px;
 }
 .update form label {
     display: flex;
@@ -48,7 +57,7 @@ form
     border: 1px solid #dee0e4;
     margin-bottom: 30px;
     padding: 0 15px;
-    margin-left: -80px;
+    margin-left: -8px;
 }
 .register form input[type="submit"] {
     width: 7%;
@@ -71,34 +80,27 @@ form
 
 .button1{
     background-color: #3274d6;
-    position: absolute;
-    top: 48%;
-    width: 120px;
+    width: 105px;
     height: 51px;
     color: white;
 }
 
 .button2{
     background-color: #3274d6;
-    position: absolute;
-    top: 57%;
-    width: 120px;
+    width:105px;
     height: 51px;
     color: white;
 }
 
 .button3{
     background-color: #3274d6;
-    position: absolute;
-    top: 66%;
-    width: 120px;
+    width: 105px;
     height: 51px;
     color: white;
 }
 body {
     margin: 0;
     padding: 0;
-    background: #ccc;
   }
    
   .nav ul {
