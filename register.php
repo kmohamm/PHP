@@ -1,9 +1,7 @@
 <?php
 
-include("connection.php");
+include("config/setup.php");
 include("form.php");
-//include("homepage.php");
-
 
 if(isset($_POST['register'])){
     $name = $_POST['Name'];
@@ -15,6 +13,14 @@ if(isset($_POST['register'])){
     {
         echo "passwords do not match";
         exit();
+    }
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $number    = preg_match('@[0-9]@', $password);
+
+    if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) 
+    {
+        echo "password should be strong";
     }
 
     $check_email = $db->prepare("SELECT email FROM users WHERE email = ?");
@@ -35,7 +41,7 @@ if(isset($_POST['register'])){
   
     $to = "$email";
     $subject = "Your password";
-    $message = "<a href=http://localhost:8080/camagru/email_validation.php?username=$username>link</a>.<p>Hello: $name</p>
+    $message = "<a href=http://localhost:8080/kmohamma/email_validation.php?username=$username>link</a>.<p>Hello: $name</p>
     
     <p>Thanks for Registering.</p>
     <p>Your email is: <b>$email</b></p>";
@@ -44,11 +50,8 @@ if(isset($_POST['register'])){
     $headers = "MIME-Version: 1.0" . "\n";
     $headers .= "Content-type:text/html;charset=iso-8859-1" . "\n";
     $headers .= "From: $from" . "\n";
-    // Send email
     mail($to,$subject,$message,$headers);
-    // Inform the user
     echo "Thanks for registering! We have just sent you an email with a link to the login page.<br>";
-    // echo " <a href='sign.php'>Click here</a>";
 }
 ?>
 <!DOCTYPE html>

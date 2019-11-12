@@ -14,9 +14,10 @@
             <ul>
                 <li class="home"><a href="homepage.php">Home</a></li>
                 <li class="profile"><a href="profile.php">Profile</a></li>
-                <li class="gallery"><a href="#">Gallery</a></li>
+                <li class="gallery"><a href="gallery.php">Gallery</a></li>
                 <li class="SnapShot"><a class="active">SnapShot</a></li>
                 <li class="logout"><a href="sign.php">Logout</a></li>
+                <li class="upload"><a href="upload.php">Upload</a></li>
             </ul>
         </div>
         <script src="script.js"></script>
@@ -25,8 +26,9 @@
                 <video id="player">Video is loading...</video>
 			</div>
 			<div >
-				<!-- <canvas name="image" id="canvas" width="420px" height="240px">Canvas Still Loading</canvas>
-				<h3><canvas name="image" id="player">Canvas still loading</canvas></h3> -->
+				<canvas name="image" id="canvas" width="520px" height="340px">Canvas Still Loading</canvas>
+				<canvas name="image" id="player">Canvas still loading</canvas>
+                <input type="submit" class="button1" value="SnapShot" id="capture">
             </div>
   </header>
   <div id="container">
@@ -50,7 +52,10 @@
     {
 
     }
+    var context = canvas.getContext('2d');
+    capture.addEventListener("click", function(){
+    context.drawImage(video, 0, 0, 400, 400);});
 </script>
- <input type="submit" class="button1" value="SnapShot" name="submit">
 </body>
-<html>
+</html>
+

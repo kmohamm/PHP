@@ -1,8 +1,6 @@
 <?php
-ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
    session_start();
-   include("connection.php");
-   echo $_SESSION['username'];
+   include("config/setup.php");
    $old_username = $_SESSION['username'];
    
    if(isset($_POST['submit_name']))
@@ -43,9 +41,10 @@ ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_report
         <ul>
             <li class="home"><a href="homepage.php">Home</a></li>
             <li class="profile"><a class="active" href="#">Profile</a></li>
-            <li class="gallery"><a href="#">Gallery</a></li>
+            <li class="gallery"><a href="gallery.php">Gallery</a></li>
             <li class="SnapShot"><a href="SnapShot.php">SnapShot</a></li>
             <li class="logout"><a href="sign.php">Logout</a></li>
+            <li class="upload"><a href="upload.php">Upload</a></li>
         </ul>
         </div>
 

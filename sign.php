@@ -1,20 +1,14 @@
 <?php
    
    session_start();
-   include("connection.php");
+   include("config/setup.php");
    
    if(isset($_POST['sign'])){
       $username = $_POST['username'];
       $password = $_POST['password'];
-      // $hashed = password_hash($password, PASSWORD_DEFAULT);
-
       $check_username = $db->prepare("SELECT * FROM users WHERE username = ?");
       $check_username->execute(array($username));
-      // $check_password = $db->prepare("SELECT passwd FROM users WHERE passwd = ?");
-      // $check_password->execute([$password]);
       $user = $check_username->fetch(PDO::FETCH_ASSOC);
-      //var_dump($user['passwd']);
-      //die();
       $hashed = $user['passwd'];
       if (password_verify($password, $hashed))
       {
@@ -27,32 +21,6 @@
          echo "Your Username  or Password is Incorrect";
       }
    }
-
-      
-   //    if ($check_username->rowCount() > 0 && $check_password->rowCount() > 0)
-   //    {
-   //        echo "you are no logged in";
-   //        exit();
-   //        header("Location: http://localhost:8080/camagru/homepage.php");
-   //    }
-   //    else if ($check_username->rowCount() == 0 || $check_password->rowCount() == 0)
-   //    {
-   //       echo "please check your username or password";
-   //    }
-   // }
-   // $username = $_POST['username'];
-   // $password = $_POST['password'];
-   // $db->execute(array(':username' => $username));
-
-   // $row = $db->fetch(PDO::FETCH_ASSOC);
-   // session_regenerate_id();
-   // $_SESSION["authorised"] = true;
-   // $_SESSION["sess_username"] = $row['username'];
-   // $_SESSION["sess_password"] = row['password'];
-   // session_write_close();
-   // header("Location: http://localhost:8080/CAMAGRU/homepage.php");
-
-
 ?>
 
 <!DOCTYPE html>

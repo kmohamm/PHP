@@ -1,15 +1,12 @@
-body {
-    margin: 0;
-    padding: 0;
-    background: #ccc;
-  }
-   
+body{
+  background-image: url("https://images.pexels.com/photos/1525041/pexels-photo-1525041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+}
   .nav ul {
     list-style: none;
     background-color: #ed5c4a;
     text-align: center;
     padding: 0;
-    margin: 0;
+    margin: -8px;
   }
   .nav li {
     font-family: 'Oswald', sans-serif;
@@ -44,24 +41,8 @@ body {
       line-height: 60px;
       font-size: 1.4em;
     }
-   
-    /* Option 1 - Display Inline */
     .nav li {
       display: inline-block;
       margin-right: -4px;
     }
-   
-    /* Options 2 - Float
-    .nav li {
-      float: left;
-    }
-    .nav ul {
-      overflow: auto;
-      width: 600px;
-      margin: 0 auto;
-    }
-    .nav {
-      background-color: #444;
-    }
-    */
   }
